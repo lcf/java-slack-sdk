@@ -117,6 +117,9 @@ public class EventRequest extends Request<EventContext> {
                 this.getContext().setFunctionExecutionId(functionExecutionId);
             }
         }
+        if (event.get("user") != null) {
+            this.getContext().setRequestUserId(event.get("user").getAsString());
+        }
     }
 
     private EventContext context = new EventContext();
